@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    public class Problem : IProblem
+    public class Algorithm : IProblem
     {
         private int run(int n)
         {

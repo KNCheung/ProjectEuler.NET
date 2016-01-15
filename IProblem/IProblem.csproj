@@ -7,7 +7,7 @@
     <ProjectGuid>{05E818A1-1456-4E48-8908-B1AE9EF46485}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IProblem</RootNamespace>
+    <RootNamespace>ProjectEuler</RootNamespace>
     <AssemblyName>IProblem</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -31,7 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IProblem.cs" />
+    <Compile Include="Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

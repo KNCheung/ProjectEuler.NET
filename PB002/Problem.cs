@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ProjectEuler
 {
-    public class Problem : IProblem
+    public class Algorithm : IProblem
     {
         private static IEnumerable fibonacci()
         {
