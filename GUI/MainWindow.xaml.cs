@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Shell;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,6 +27,9 @@ namespace GUI
         {
             InitializeComponent();
             newProblemSelected();
+            this.TaskbarItemInfo = new TaskbarItemInfo();
+            this.TaskbarItemInfo.ProgressState = TaskbarItemProgressState.Error;
+            this.TaskbarItemInfo.ProgressValue = 1;
         }
 
         private void problemList_Initialized(object sender, EventArgs e)
