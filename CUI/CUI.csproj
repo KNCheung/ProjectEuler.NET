@@ -47,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>E004F702FD129ABA9EDB0CBD26A3CA20B16CEA82</ManifestCertificateThumbprint>
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\IProblem\IProblem.csproj">
       <Project>{05e818a1-1456-4e48-8908-b1ae9ef46485}</Project>
       <Name>IProblem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolbox\Toolbox.csproj">
+      <Project>{99726fe1-8df5-4e36-a0bc-84ad4b51b36a}</Project>
+      <Name>Toolbox</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
