@@ -6,11 +6,20 @@ namespace ProjectEuler
     {
         static void Main(string[] args)
         {
+            int n;
             foreach (int i in Toolbox.AvailableProblems)
                 Console.WriteLine("Found Problem {0:d3}", i);
-            Console.WriteLine("The latest one is Problem {0:d3}", Toolbox.LatestProblem);
+            Console.WriteLine("The latest one is Problem {0:d3}\n", Toolbox.LatestProblem);
 
-            int n = int.Parse(Console.ReadLine());
+            try
+            {
+                n = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                n = Toolbox.LatestProblem;
+                Console.WriteLine("Input Error.\nRun the latest One: Problem {0:d3}", n);
+            }
 
             Problem prob = new Problem(n);
             if (prob.available)
