@@ -4,6 +4,14 @@ namespace ProjectEuler
 {
     public static class Troy
     {
+        public static bool isPalindrome(string str)
+        {
+            for (int i = 0; i < (str.Length >> 1); i++)
+                if (str[i] != str[str.Length - i - 1])
+                    return false;
+            return true;
+        }
+
         public static int[] GetPrimes(int n)
         {
             bool[] flag = new bool[n+1];
