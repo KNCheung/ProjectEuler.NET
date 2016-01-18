@@ -1,2 +1,2 @@
-Project Euler C# version
+Project Euler .Net version
 ========================

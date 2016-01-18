@@ -6,10 +6,7 @@ namespace ProjectEuler
     {
         public string compute()
         {
-            long sum = 0;
-            foreach (int p in TroyMath.GetPrimes(2000000 - 1))
-                sum += p;
-            return sum.ToString();
+            return TroyMath.C(40, 20).ToString();
         }
 
         public bool prepare()

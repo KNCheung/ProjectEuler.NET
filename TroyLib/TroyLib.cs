@@ -3,8 +3,27 @@ using System.Collections.Generic;
 
 namespace ProjectEuler
 {
-    public static class Troy
+    public static class TroyMath
     {
+        private static List<long[]> Combination = new List<long[]>();
+        public static long C(int n, int k)
+        {
+            int t;
+            if (k > n)
+                throw new ArgumentException();
+            if (n >= Combination.Count)
+                while (n >= Combination.Count)
+                {
+                    t = Combination.Count;
+                    Combination.Add(new long[t + 1]);
+                    Combination[t][0] = 1;
+                    Combination[t][t] = 1;
+                }
+            if (Combination[n][k] == 0)
+                Combination[n][k] = C(n - 1, k - 1) + C(n - 1, k);
+            return Combination[n][k];
+        }
+
         public static long GCD(long a, long b)
         {
             if (b == 0)

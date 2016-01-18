@@ -8,7 +8,7 @@ namespace ProjectEuler
         public string compute()
         {
             int cnt = 10001;
-            foreach (int prime in Troy.PrimeIterator(Troy.isPrime))
+            foreach (int prime in TroyMath.PrimeIterator(TroyMath.isPrime))
                 if ((--cnt) == 0)
                     return prime.ToString();
             return "";
