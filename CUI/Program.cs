@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Windows;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
     class Program
     {
+        private static Task mainTask = null;
         static void Main(string[] args)
         {
             int n;
@@ -26,7 +30,20 @@ namespace ProjectEuler
             {
                 prob.prepare();
                 if (prob.isPrepared)
-                    prob.run();
+                {
+                    mainTask = Task.Run(() => { prob.run(); });
+                    if (prob.Progress != null)
+                    {
+                        while (!mainTask.IsCompleted)
+                        {
+                            Console.Write("{0:00.00%} {1}/{2}\r", prob.Progress.Percentage, prob.Progress.CurrentValue, prob.Progress.MaxValue);
+                            Thread.Sleep(100);
+                        }
+                        Console.WriteLine();
+                    }
+                    else
+                        mainTask.Wait();
+                }
                 Console.Write("Finished\nAnswer: {0}\nTime: {1}\n", prob.answer, prob.time);
             }
             else
