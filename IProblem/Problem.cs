@@ -31,17 +31,22 @@ namespace ProjectEuler
         {
             try
             {
+                Console.Write("Try to load lib\\PB{0:d3}.dll...", n);
                 Assembly asm = Assembly.LoadFrom(string.Format(@"lib\PB{0:d3}.dll", n));
+                Console.Write("OK\nTry to create the Algorithm Object...");
                 this.algo = asm.CreateInstance("ProjectEuler.Algorithm");
+                Console.WriteLine("OK");
                 this.available = true;
                 if (algo is IProgress)
                 {
+                    Console.WriteLine("Found IProgress interface implement");
                     Progress = new CProgress();
                     Progress = ((IProgress)algo).Progress;
                 }
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine("Failed with exception\nMESSAGE: {0}", e.Message);
                 this.available = false;
                 this.algo = null;
             }
