@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace ProjectEuler
 {
-    public sealed class Problem
+    public class Problem
     {
-        private IProblem algo = null;
+        private object algo = null;
         private Stopwatch stopwatch = new Stopwatch();
 
         public bool isPrepared { private set; get; }
@@ -14,6 +14,7 @@ namespace ProjectEuler
         public bool available { private set; get; }
         public int num { private set; get; }
         public string answer { private set; get; }
+        public CProgress Progress = null;
 
         public Problem(int n = 0)
         {
@@ -23,12 +24,7 @@ namespace ProjectEuler
             this.answer = "";
             this.isPrepared = false;
 
-            if (n == 0)
-                throw new NotImplementedException();
-            else
-            {
-                loadProblem(n);
-            }
+            loadProblem(n);
         }
 
         private void loadProblem(int n)
@@ -36,8 +32,13 @@ namespace ProjectEuler
             try
             {
                 Assembly asm = Assembly.LoadFrom(string.Format(@"lib\PB{0:d3}.dll", n));
-                this.algo = (IProblem)asm.CreateInstance("ProjectEuler.Algorithm");
+                this.algo = asm.CreateInstance("ProjectEuler.Algorithm");
                 this.available = true;
+                if (algo is IProgress)
+                {
+                    Progress = new CProgress();
+                    Progress = ((IProgress)algo).Progress;
+                }
             }
             catch
             {
@@ -49,7 +50,7 @@ namespace ProjectEuler
         public bool prepare()
         {
             if (this.available)
-                this.isPrepared = this.algo.prepare();
+                this.isPrepared = ((IProblem)algo).prepare();
             return this.isPrepared;
         }
 
@@ -61,7 +62,7 @@ namespace ProjectEuler
             {
                 stopwatch.Reset();
                 stopwatch.Start();
-                this.answer = this.algo.compute();
+                this.answer = ((IProblem)this.algo).compute();
                 stopwatch.Stop();
                 this.time = stopwatch.Elapsed;
             }
