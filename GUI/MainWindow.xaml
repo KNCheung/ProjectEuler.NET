@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="problemList" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="144" Height="27" Initialized="problemList_Initialized" FontSize="13.333" FontWeight="Thin" SelectionChanged="problemSelected" BorderBrush="{x:Null}" Background="{x:Null}"/>
         <ProgressBar x:Name="PBar" HorizontalAlignment="Left" Height="25" Margin="10,284,0,0" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="2" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF06B025"/>
-        <Button x:Name="btnRun" Content="Button" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Width="172" Height="34" BorderBrush="{x:Null}" Background="{x:Null}" />
+        <Button x:Name="btnRun" Content="Button" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Width="172" Height="34" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnRun_Click" />
         <Button x:Name="btnRefresh" Content="R" HorizontalAlignment="Left" Margin="159,10,0,0" VerticalAlignment="Top" Width="23" Height="27" Background="{x:Null}" Click="btnRefresh_Click" Foreground="Black" BorderBrush="{x:Null}"/>
         <RichTextBox x:Name="outputWindow" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="5,10,0,0" VerticalAlignment="Top" Width="320" BorderBrush="{x:Null}">
             <FlowDocument>
