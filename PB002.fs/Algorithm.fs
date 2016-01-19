@@ -16,7 +16,7 @@ type public Algorithm() = class
         |> Seq.sum
  
     interface IAlgorithm with
-        member this.Compute(): string = run.ToString()
+        member this.Compute(): string = string run
         member this.Prepare(): bool = true
     end
 end
