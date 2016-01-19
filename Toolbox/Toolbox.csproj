@@ -43,6 +43,12 @@
     <Compile Include="Toolbox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IProblem\IAlgorithm.csproj">
+      <Project>{05e818a1-1456-4e48-8908-b1ae9ef46485}</Project>
+      <Name>IAlgorithm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

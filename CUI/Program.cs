@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,33 +11,62 @@ namespace ProjectEuler
         private static Task mainTask = null;
         static void Main(string[] args)
         {
-            int n;
-            foreach (int i in Toolbox.AvailableProblems)
-                Console.WriteLine("Found Problem {0:d3}", i);
-            Console.WriteLine("The latest one is Problem {0:d3}\n", Toolbox.LatestProblem);
+            FileInfo file = null;
+            int n = 0;
+            foreach (FileInfo i in Toolbox.AvailableAlgorithms)
+                Console.WriteLine("Found {0}", i.Name);
+            Console.WriteLine("The latest one is {0}\n", Toolbox.LatestAlgorithm.Name);
 
             try
             {
+                Console.Write("Problem Number: ");
                 n = int.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
-                n = Toolbox.LatestProblem;
-                Console.WriteLine("Input Error.\nRun the latest One: Problem {0:d3}", n);
+                file = Toolbox.LatestAlgorithm;
+                Console.WriteLine("Input Error.\nSelect the latest One: {0}", file.Name);
             }
 
-            Problem prob = new Problem(n);
-            if (prob.available)
+            Algorithm algo = null;
+            if (file == null)
             {
-                prob.prepare();
-                if (prob.isPrepared)
+                try
                 {
-                    mainTask = Task.Run(() => { prob.run(); });
-                    if (prob.Progress != null)
+                    Console.Write("Algorithm Language: ");
+                    switch (Console.ReadLine().ToLower()[0])
+                    {
+                        case 'c':
+                            algo = new Algorithm(n, AlgorithmLanguage.CSharp);
+                            break;
+                        case 'f':
+                            algo = new Algorithm(n, AlgorithmLanguage.FSharp);
+                            break;
+                        default:
+                            algo = new Algorithm(n, AlgorithmLanguage.Unknown);
+                            break;
+                    }
+                }
+                catch
+                {
+                    algo = new Algorithm(n);
+                }
+            }
+            else
+                algo = new Algorithm(file);
+                
+            if (algo.available)
+            {
+                algo.Prepare();
+                if (algo.isPrepared)
+                {
+                    Console.WriteLine("\nStart ==>");
+                    mainTask = Task.Run(() => { algo.Run(); });
+                    if (algo.Progress != null)
                     {
                         while (!mainTask.IsCompleted)
                         {
-                            Console.Write("{0:00.00%} {1}/{2}\r", prob.Progress.Percentage, prob.Progress.CurrentValue, prob.Progress.MaxValue);
+                            Console.Write("{0:00.00%} {1}/{2}\r", algo.Progress.Percentage, algo.Progress.CurrentValue, algo.Progress.MaxValue);
                             Thread.Sleep(100);
                         }
                         Console.WriteLine();
@@ -44,7 +74,7 @@ namespace ProjectEuler
                     else
                         mainTask.Wait();
                 }
-                Console.Write("Finished\nAnswer: {0}\nTime: {1}\n", prob.answer, prob.time);
+                Console.Write("<== Finished\n\nAnswer: {0}\nTime: {1}\n", algo.answer, algo.time);
             }
             else
             {

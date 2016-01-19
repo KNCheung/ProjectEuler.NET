@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TEST</RootNamespace>
-    <AssemblyName>TEST</AssemblyName>
+    <AssemblyName>TEST.cs</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IProblem\IProblem.csproj">
+    <ProjectReference Include="..\IProblem\IAlgorithm.csproj">
       <Project>{05e818a1-1456-4e48-8908-b1ae9ef46485}</Project>
-      <Name>IProblem</Name>
+      <Name>IAlgorithm</Name>
     </ProjectReference>
     <ProjectReference Include="..\Toolbox\Toolbox.csproj">
       <Project>{99726fe1-8df5-4e36-a0bc-84ad4b51b36a}</Project>

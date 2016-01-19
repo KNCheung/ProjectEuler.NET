@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         private string rawData = @"73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -27,7 +27,7 @@ namespace ProjectEuler
 71636269561882670428252483600823257530420752963450";
         private byte[] data;
 
-        public string compute()
+        public string Compute()
         {
             long max = long.MinValue;
             long tmp;
@@ -43,7 +43,7 @@ namespace ProjectEuler
             return max.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             this.data = (from c in this.rawData
                          where char.IsDigit(c)

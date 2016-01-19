@@ -6,11 +6,11 @@ using System.Numerics;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         List<BigInteger> data = new List<BigInteger>();
 
-        public string compute()
+        public string Compute()
         {
             BigInteger sum = 0;
             foreach (BigInteger x in data)
@@ -18,7 +18,7 @@ namespace ProjectEuler
             return sum.ToString().Remove(10);
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             foreach (string n in Properties.Resources.data.Split('\n'))
                 data.Add(BigInteger.Parse(n));

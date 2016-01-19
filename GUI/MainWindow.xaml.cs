@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Shell;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 using ProjectEuler;
 
@@ -50,7 +41,7 @@ namespace GUI
             problemList.ItemsSource = new PBItemArr();
             problemList.SelectedValuePath = "id";
             problemList.DisplayMemberPath = "name";
-            problemList.SelectedValue = Toolbox.LatestProblem;
+            problemList.SelectedValue = Toolbox.LatestAlgorithm;
         }
 
         private void problemSelected(object sender, SelectionChangedEventArgs e)
@@ -67,7 +58,7 @@ namespace GUI
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             ((PBItemArr)problemList.ItemsSource).init();
-            problemList.SelectedValue = Toolbox.LatestProblem;
+            problemList.SelectedValue = Toolbox.LatestAlgorithm;
         }
 
         Task mainTask = null;
@@ -75,11 +66,11 @@ namespace GUI
         {
             if ((mainTask == null) || (mainTask.IsCompleted))
             {
-                Problem prob = new Problem((int)problemList.SelectedValue);
+                Algorithm prob = new Algorithm((int)problemList.SelectedValue);
                 data.SetProgressSource(prob.Progress);
 
-                prob.prepare();
-                mainTask = Task.Run(() => { prob.run(); });
+                prob.Prepare();
+                mainTask = Task.Run(() => { prob.Run(); });
                 updateTimer = new Timer(data.TimerUpdate, null, 0, 50);
                 btnRun.Content = "Running";
             }

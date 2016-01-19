@@ -1,8 +1,8 @@
 ﻿namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             int max = int.MinValue;
             for (int i = 100; i <= 999; i++)
@@ -13,7 +13,7 @@
             return max.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

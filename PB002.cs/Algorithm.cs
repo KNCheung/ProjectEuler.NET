@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         private static IEnumerable fibonacci()
         {
@@ -21,7 +21,7 @@ namespace ProjectEuler
             }
         }
 
-        public string compute()
+        public string Compute()
         {
             long sum = 0;
             foreach (int x in fibonacci())
@@ -35,7 +35,7 @@ namespace ProjectEuler
             return sum.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

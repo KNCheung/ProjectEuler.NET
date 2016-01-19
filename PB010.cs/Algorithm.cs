@@ -2,9 +2,9 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             long sum = 0;
             foreach (int p in TroyMath.GetPrimes(2000000 - 1))
@@ -12,7 +12,7 @@ namespace ProjectEuler
             return sum.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

@@ -2,14 +2,14 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             return TroyMath.C(40, 20).ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

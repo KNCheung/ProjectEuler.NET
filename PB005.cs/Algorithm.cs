@@ -2,9 +2,9 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             int[] primes = new int[] { 2, 3, 5, 7, 11, 13, 17, 19 };
             int[] final = new int[primes.Length];
@@ -37,7 +37,7 @@ namespace ProjectEuler
             return ret.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

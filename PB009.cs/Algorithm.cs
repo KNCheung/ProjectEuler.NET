@@ -2,9 +2,9 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             int a = 0, b = 0, c = 0;
             for (a = 1; a < 1000; a++)
@@ -17,7 +17,7 @@ namespace ProjectEuler
             return "";
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

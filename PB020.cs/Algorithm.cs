@@ -4,9 +4,9 @@ using System.Numerics;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             BigInteger factorial = BigInteger.One;
             for (int i = 1; i <= 100; i++)
@@ -14,7 +14,7 @@ namespace ProjectEuler
             return Enumerable.Sum<Char>(factorial.ToString().ToCharArray(), (x) => ((int)(x - '0'))).ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

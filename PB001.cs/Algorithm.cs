@@ -2,7 +2,7 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         private int run(int n)
         {
@@ -13,12 +13,12 @@ namespace ProjectEuler
             return sum;
         }
 
-        public string compute()
+        public string Compute()
         {
             return string.Format("{0}", run(1000));
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

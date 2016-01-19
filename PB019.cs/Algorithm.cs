@@ -2,9 +2,9 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             int cnt = 0;
             for (int year = 1901; year <= 2000; year++)
@@ -14,7 +14,7 @@ namespace ProjectEuler
             return cnt.ToString(); 
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

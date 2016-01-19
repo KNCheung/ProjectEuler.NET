@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             int cnt = 10001;
             foreach (int prime in TroyMath.PrimeIterator(TroyMath.isPrime))
@@ -14,7 +14,7 @@ namespace ProjectEuler
             return "";
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

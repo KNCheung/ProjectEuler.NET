@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         Dictionary<long, long> link = new Dictionary<long, long>();
 
@@ -23,7 +23,7 @@ namespace ProjectEuler
             return link[n];
         }
 
-        public string compute()
+        public string Compute()
         {
             long maxLength = long.MinValue;
             long maxN = 0;
@@ -41,7 +41,7 @@ namespace ProjectEuler
             return maxN.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

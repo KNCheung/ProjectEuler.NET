@@ -37,9 +37,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IProblem\IProblem.csproj">
+    <ProjectReference Include="..\IProblem\IAlgorithm.csproj">
       <Project>{05e818a1-1456-4e48-8908-b1ae9ef46485}</Project>
-      <Name>IProblem</Name>
+      <Name>IAlgorithm</Name>
     </ProjectReference>
     <ProjectReference Include="..\TroyLib\TroyLib.csproj">
       <Project>{1f419cf7-f086-481f-8f2c-3541ac53a80d}</Project>

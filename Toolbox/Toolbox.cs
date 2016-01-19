@@ -21,32 +21,28 @@ namespace ProjectEuler
                     return new FileInfo[0];
                 }
                 var problems = from x in lib.GetFiles()
-                               where Regex.IsMatch(x.Name, @"^PB\d{3}\.dll")
+                               where Regex.IsMatch(x.Name, @"^PB\d{3}(.\w+)?\.dll")
                                orderby x.Name
                                select x;
                 return problems.ToArray<FileInfo>();
             }
         }
-        public static int[] AvailableProblems
+        public static FileInfo[] AvailableAlgorithms
         {
             get
             {
-                return (from x in AlgorithmFiles
-                        select int.Parse(Regex.Replace(x.Name, @"(PB0*)|(\.dll)", ""))).ToArray<int>();
+                return AlgorithmFiles;
             }
         }
-        public static int LatestProblem
+        public static FileInfo LatestAlgorithm
         {
             get
             {
-                int min = 0;
-                DateTime minTime = DateTime.MinValue;
-                foreach (FileInfo f in AlgorithmFiles)
-                    if (f.LastAccessTime > minTime)
-                    {
-                        min = int.Parse(Regex.Replace(f.Name, @"(PB0*)|(\.dll)", ""));
-                        minTime = f.LastAccessTime;
-                    }
+                FileInfo[] lst = AlgorithmFiles;
+                FileInfo min = lst[0];
+                foreach (FileInfo f in lst)
+                    if (f.LastAccessTime > min.LastAccessTime)
+                        min = f;
                 return min;
             }
         }

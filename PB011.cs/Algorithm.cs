@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         int[,] data = null;
         int n = 0;
@@ -17,7 +17,7 @@ namespace ProjectEuler
                 return 0;
         }
 
-        public string compute()
+        public string Compute()
         {
             int max = int.MinValue;
             int t;
@@ -43,7 +43,7 @@ namespace ProjectEuler
             return max.ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             var rawDatas = (from str in Properties.Resources.data.Split('\n')
                             where Regex.IsMatch(str, @"^\s*(\d+\s+)+$")

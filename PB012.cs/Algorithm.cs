@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
         private IEnumerable<long> TriangularNumber()
         {
@@ -28,7 +28,7 @@ namespace ProjectEuler
             return cnt;
         }
 
-        public string compute()
+        public string Compute()
         {
             foreach (long x in TriangularNumber())
                 if (FactorsCount(x) > 500)
@@ -36,7 +36,7 @@ namespace ProjectEuler
             return "";
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

@@ -2,9 +2,9 @@
 
 namespace ProjectEuler
 {
-    public class Algorithm : IProblem
+    public class Algorithm : IAlgorithm
     {
-        public string compute()
+        public string Compute()
         {
             long SumOfSquare=0, SquareOfSum=0;
             for (int i = 0; i <= 100; i++)
@@ -16,7 +16,7 @@ namespace ProjectEuler
             return (SquareOfSum - SumOfSquare).ToString();
         }
 
-        public bool prepare()
+        public bool Prepare()
         {
             return true;
         }

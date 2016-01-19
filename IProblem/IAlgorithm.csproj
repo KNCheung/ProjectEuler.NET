@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectEuler</RootNamespace>
-    <AssemblyName>IProblem</AssemblyName>
+    <AssemblyName>IAlgorithm</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IProgress.cs" />
-    <Compile Include="IProblem.cs" />
-    <Compile Include="Problem.cs" />
+    <Compile Include="IAlgorithm.cs" />
+    <Compile Include="Algorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
