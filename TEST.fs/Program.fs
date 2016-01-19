@@ -5,13 +5,13 @@ open ProjectEuler
 
 type public Algorithm = 
     class
-        interface IProblem with
-            member this.compute(): string = "Hello World"
-            member this.prepare(): bool = true
+        interface IAlgorithm with
+            member this.Compute(): string = "Hello World"
+            member this.Prepare(): bool = true
         end
     end
 
 [<EntryPoint>]
 let main argv = 
-    printfn "%A" argv
+    printfn "%s" "Hello World"
     0 // return an integer exit code

@@ -25,11 +25,11 @@ namespace GUI
         {
             this.Clear();
             Console.WriteLine("Loading problem list");
-            foreach (int x in Toolbox.AvailableAlgorithms)
-            {
-                Console.WriteLine("Found Problem {0:d3}", x);
-                this.Add(new PBItem { name = string.Format("Problem {0:d3}", x), id = x });
-            }
+            //foreach (int x in Toolbox.AvailableAlgorithms)
+            //{
+            //    Console.WriteLine("Found Problem {0:d3}", x);
+            //    this.Add(new PBItem { name = string.Format("Problem {0:d3}", x), id = x });
+            //}
         }
     }
 }
