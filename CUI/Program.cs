@@ -13,8 +13,6 @@ namespace ProjectEuler
         {
             FileInfo file = null;
             int n = 0;
-            foreach (FileInfo i in Toolbox.AvailableAlgorithms)
-                Console.WriteLine("Found {0}", i.Name);
             Console.WriteLine("The latest one is {0}\n", Toolbox.LatestAlgorithm.Name);
 
             try
