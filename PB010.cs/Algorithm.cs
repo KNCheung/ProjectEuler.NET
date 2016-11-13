@@ -7,7 +7,7 @@ namespace ProjectEuler
         public string Compute()
         {
             long sum = 0;
-            foreach (int p in TroyMath.GetPrimes(2000000 - 1))
+            foreach (int p in MathLib.GetPrimes(2000000 - 1))
                 sum += p;
             return sum.ToString();
         }

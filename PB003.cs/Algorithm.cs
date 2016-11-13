@@ -6,7 +6,7 @@ namespace ProjectEuler
     {
         public long run(long n)
         {
-            int[] primes = TroyMath.GetPrimes((int)Math.Ceiling(Math.Sqrt(n)));
+            int[] primes = MathLib.GetPrimes((int)Math.Ceiling(Math.Sqrt(n)));
             for (int i = primes.Length - 1; i >= 0; i--)
                 if (n % primes[i] == 0)
                     return primes[i];

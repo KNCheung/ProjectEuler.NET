@@ -137,7 +137,6 @@ namespace ProjectEuler
                 if (algo is IProgress)
                 {
                     Console.WriteLine("Found IProgress interface implement");
-                    Progress = new CProgress();
                     Progress = ((IProgress)algo).Progress;
                 }
             }

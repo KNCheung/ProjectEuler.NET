@@ -55,6 +55,7 @@ namespace ProjectEuler
                 
             if (algo.available)
             {
+                Console.Title = string.Format("Problem {0:d3}", algo.n);
                 algo.Prepare();
                 if (algo.isPrepared)
                 {
@@ -65,6 +66,7 @@ namespace ProjectEuler
                         while (!mainTask.IsCompleted)
                         {
                             Console.Write("{0:00.00%} {1}/{2}\r", algo.Progress.Percentage, algo.Progress.CurrentValue, algo.Progress.MaxValue);
+                            Console.Title = string.Format("{0:00%} Problem {1:d3}", algo.Progress.Percentage, algo.n);
                             Thread.Sleep(100);
                         }
                         Console.WriteLine();

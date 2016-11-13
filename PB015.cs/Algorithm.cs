@@ -6,7 +6,7 @@ namespace ProjectEuler
     {
         public string Compute()
         {
-            return TroyMath.C(40, 20).ToString();
+            return MathLib.C(40, 20).ToString();
         }
 
         public bool Prepare()

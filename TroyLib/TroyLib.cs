@@ -6,7 +6,7 @@ namespace ProjectEuler
     /// <summary>
     /// 自定义数学库
     /// </summary>
-    public static class TroyLib
+    public static class MathLib
     {
         private static List<long[]> Combination = new List<long[]>();
 
