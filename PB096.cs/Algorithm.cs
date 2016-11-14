@@ -171,13 +171,12 @@ namespace ProjectEuler
             }
             return ret;
         }
-    }
 
-    public class Algorithm : IAlgorithm
-    {
-
-        private Sudoku IterSolver(Sudoku curr)
+        private static List<Sudoku> IterSolver(Sudoku curr)
         {
+            if (curr.Status == SolveStatus.Solved)
+                return new List<Sudoku> {curr};
+            var ret = new List<Sudoku>();
             var coord = curr.NextUnsolved();
             foreach (var item in curr.GetCandidate(coord.Item1, coord.Item2))
             {
@@ -186,11 +185,10 @@ namespace ProjectEuler
                 switch (tmp.Status)
                 {
                     case Sudoku.SolveStatus.Solved:
-                        return tmp;
+                        ret.Add(tmp);
+                        break;
                     case Sudoku.SolveStatus.UnSolved:
-                        tmp = IterSolver(tmp);
-                        if (tmp.Status == Sudoku.SolveStatus.Solved)
-                            return tmp;
+                        ret.AddRange(IterSolver(tmp));
                         break;
                     case Sudoku.SolveStatus.NoSolution:
                         break;
@@ -198,8 +196,19 @@ namespace ProjectEuler
                         throw new ArgumentOutOfRangeException();
                 }
             }
-            return curr;
+            return ret;
         }
+
+        public static List<Sudoku> Solver(string problem = "", string name = "")
+        {
+            var foo = new Sudoku(problem, name);
+            return IterSolver(foo);
+        }
+
+    }
+
+    public class Algorithm : IAlgorithm
+    {
 
         private readonly List<Tuple<string, string>> _problem = new List<Tuple<string, string>>();
         public string Compute()
@@ -207,9 +216,7 @@ namespace ProjectEuler
             var sum = 0;
             foreach (var item in _problem)
             {
-                var tmp = new Sudoku(item.Item2, item.Item1);
-                if (tmp.Status == Sudoku.SolveStatus.UnSolved)
-                    tmp = IterSolver(tmp);
+                var tmp = Sudoku.Solver(item.Item2, item.Item1)[0];
                 System.Console.WriteLine("{0}{1}\n{2}", tmp.Name,tmp.Status,tmp);
                 sum += tmp[0, 0]*100 + tmp[0, 1]*10 + tmp[0, 2];
             }
